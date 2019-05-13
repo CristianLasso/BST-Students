@@ -1,16 +1,15 @@
 package model;
 
-public class Student {
-	
+public class Student implements Comparable<Student> {
+
 	private int code;
 	private String name;
-	private Student root;
 	private Student left;
 	private Student right;
-	
+
 	public Student(int c, String n) {
-		code=c;
-		name=n;
+		code = c;
+		name = n;
 	}
 
 	public int getCode() {
@@ -19,10 +18,6 @@ public class Student {
 
 	public String getName() {
 		return name;
-	}
-
-	public Student getRoot() {
-		return root;
 	}
 
 	public Student getLeft() {
@@ -40,6 +35,15 @@ public class Student {
 	public void setRight(Student right) {
 		this.right = right;
 	}
-	
-	
+
+	@Override
+	public int compareTo(Student otherStudent) {
+		int jairitoxxx = 0;
+		if (code < otherStudent.getCode()) {
+			jairitoxxx = -1;
+		} else if (code > otherStudent.getCode()) {
+			jairitoxxx = 1;
+		}
+		return jairitoxxx;
+	}
 }
